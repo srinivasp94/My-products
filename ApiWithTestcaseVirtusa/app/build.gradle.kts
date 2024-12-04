@@ -21,12 +21,12 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField( "String", "BASE_URL", "\"https://api.dev.example.com\"")
+            buildConfigField( "String", "BASE_URL", "\"https://dummyjson.com/\"")
             isMinifyEnabled = false
         }
         release {
             isMinifyEnabled = true
-            buildConfigField( "String", "BASE_URL", "\"https://api.dev.example.com\"")
+            buildConfigField( "String", "BASE_URL", "\"https://dummyjson.com/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -75,7 +75,14 @@ dependencies {
 
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
 
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
+    kapt(libs.compiler)
+
+
 }

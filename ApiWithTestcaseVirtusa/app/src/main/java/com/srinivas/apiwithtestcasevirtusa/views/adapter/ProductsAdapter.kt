@@ -1,12 +1,14 @@
 package com.srinivas.apiwithtestcasevirtusa.views.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.srinivas.apiwithtestcasevirtusa.R
 import com.srinivas.apiwithtestcasevirtusa.databinding.ItemProductsBinding
 import com.srinivas.apiwithtestcasevirtusa.model.response.Products
-import com.srinivas.apiwithtestcasevirtusa.views.activity.MainActivity
 
 class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
 
@@ -16,6 +18,12 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(products: Products) {
+            Glide.with(binding.root.context)
+                .load(products.thumbnail)
+                .placeholder(R.drawable.ic_launcher_foreground)
+                .error(R.drawable.baseline_broken_image_24)
+                .into(binding.Thumbnail)
+
             binding.product = products
             binding.executePendingBindings()
         }
@@ -41,7 +49,5 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>(
         this.list.addAll(list)
         notifyDataSetChanged()
     }
-
-
 
 }

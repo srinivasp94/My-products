@@ -10,6 +10,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -21,7 +23,14 @@ object DiAppModule {
     @Provides
     @Singleton
     fun providesRetrofit(): Retrofit {
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+
+        val client = OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .build()
         return Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -35,12 +44,12 @@ object DiAppModule {
 
     @Provides
     @Singleton
-    fun providesPostDataSource(apiService: ApiService) : PostDataSource{
+    fun providesPostDataSource(apiService: ApiService): PostDataSource {
         return PostDataSourceImpl(apiService)
     }
 
     @Provides
-    fun providesGetProductRepository(postDataSource: PostDataSource) : ProdRepo{
+    fun providesGetProductRepository(postDataSource: PostDataSource): ProdRepo {
         return ProductRepository(postDataSource)
     }
 }
