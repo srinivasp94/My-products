@@ -1,18 +1,12 @@
 package com.srinivas.apiwithtestcasevirtusa.views.activity
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.lifecycleScope
-import com.srinivas.apiwithtestcasevirtusa.R
 import com.srinivas.apiwithtestcasevirtusa.databinding.ActivityMainBinding
 import com.srinivas.apiwithtestcasevirtusa.model.response.Products
-import com.srinivas.apiwithtestcasevirtusa.model.response.ProductsResponse
-import com.srinivas.apiwithtestcasevirtusa.utils.AppConstants
 import com.srinivas.apiwithtestcasevirtusa.utils.ResourceState
 import com.srinivas.apiwithtestcasevirtusa.viewmodels.ProductViewModel
 import com.srinivas.apiwithtestcasevirtusa.views.adapter.ProductsAdapter

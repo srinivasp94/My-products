@@ -1,9 +1,6 @@
 package com.srinivas.apiwithtestcasevirtusa.viewmodels
 
-import android.util.Log
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
-import com.srinivas.apiwithtestcasevirtusa.model.datasource.PostDataSource
 import com.srinivas.apiwithtestcasevirtusa.model.response.Products
 import com.srinivas.apiwithtestcasevirtusa.model.response.ProductsResponse
 import com.srinivas.apiwithtestcasevirtusa.repository.FakeProductRepository
@@ -11,10 +8,7 @@ import com.srinivas.apiwithtestcasevirtusa.utils.AppConstants
 import com.srinivas.apiwithtestcasevirtusa.utils.MainDispatcherRule
 import com.srinivas.apiwithtestcasevirtusa.utils.ResourceState
 import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertNotSame
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -23,7 +17,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.Mock
-import org.mockito.Mockito.mock
 
 @RunWith(JUnit4::class)
 @ExperimentalCoroutinesApi
