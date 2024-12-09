@@ -33,7 +33,7 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
-      working-directory: app  # Replace 'app' with the actual subdirectory
+      working-directory: ApiWithTestcaseVirtusa/app  # Replace 'app' with the actual subdirectory
 
 
     - name: Run Unit Tests
