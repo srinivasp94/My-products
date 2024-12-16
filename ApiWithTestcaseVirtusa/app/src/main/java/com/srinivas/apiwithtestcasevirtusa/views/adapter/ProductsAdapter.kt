@@ -1,6 +1,7 @@
 package com.srinivas.apiwithtestcasevirtusa.views.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,6 +9,8 @@ import com.bumptech.glide.Glide
 import com.srinivas.apiwithtestcasevirtusa.R
 import com.srinivas.apiwithtestcasevirtusa.databinding.ItemProductsBinding
 import com.srinivas.apiwithtestcasevirtusa.model.response.Products
+import com.srinivas.apiwithtestcasevirtusa.utils.AppConstants.KEY_PRODUCT
+import com.srinivas.apiwithtestcasevirtusa.views.activity.DetailsActivity
 
 class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
 
@@ -25,6 +28,11 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>(
 
             binding.product = products
             binding.executePendingBindings()
+            binding.cardItem.setOnClickListener{
+                val intent = Intent(binding.root.context,DetailsActivity::class.java)
+                intent.putExtra(KEY_PRODUCT,products)
+                binding.root.context.startActivity(intent)
+            }
         }
 
     }

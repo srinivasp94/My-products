@@ -35,7 +35,6 @@ class ProductViewModelTest {
 
     @Before
     fun setUp() {
-//        val dataSource = mock(PostDataSource::class.java)
         fakeRepository = FakeProductRepository()
         viewModel = ProductViewModel(fakeRepository)
     }

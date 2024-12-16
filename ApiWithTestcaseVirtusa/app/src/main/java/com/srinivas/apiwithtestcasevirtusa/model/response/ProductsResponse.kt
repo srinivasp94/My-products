@@ -1,5 +1,7 @@
 package com.srinivas.apiwithtestcasevirtusa.model.response
 
+import java.io.Serializable
+
 data class ProductsResponse(
     val products: List<Products>,
     val total: Int,
@@ -17,4 +19,4 @@ data class Products(
     val rating: Double,
     val stock: Float,
     val thumbnail: String,
-)
+) : Serializable
