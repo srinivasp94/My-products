@@ -32,7 +32,7 @@ jobs:
           ${{ runner.os }}-gradle-
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: gradle build
       working-directory: /ApiWithTestcaseVirtusa/  # Replace 'app' with the actual subdirectory
 
 
