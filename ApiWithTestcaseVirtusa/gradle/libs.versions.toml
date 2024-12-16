@@ -19,6 +19,7 @@ mockitoInline = "5.5.0"
 navigationCompose = "2.8.4"
 retrofit = "2.9.0"
 turbine = "0.13.0"
+espressoContrib = "3.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -45,6 +46,7 @@ mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore
 mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoInline" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+androidx-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoContrib" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

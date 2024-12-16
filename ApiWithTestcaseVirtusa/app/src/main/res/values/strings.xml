@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Api With Testcase</string>
     <string name="products_not_found">Products not found</string>
+    <string name="no_items_available">No items available</string>
 </resources>

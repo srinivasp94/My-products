@@ -12,21 +12,21 @@ android {
     defaultConfig {
         applicationId = "com.srinivas.apiwithtestcasevirtusa"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.srinivas.apiwithtestcasevirtusa.MyCustomRunner"
+//        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         debug {
-            buildConfigField( "String", "BASE_URL", "\"https://dummyjson.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/\"")
             isMinifyEnabled = false
         }
         release {
             isMinifyEnabled = true
-            buildConfigField( "String", "BASE_URL", "\"https://dummyjson.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -53,10 +53,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.espresso.contrib)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
     // Unit Testing
     testImplementation(libs.mockito.core)
 //    testImplementation( libs.mockito.inline)
@@ -66,11 +68,13 @@ dependencies {
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
     // Hilt Testing
     androidTestImplementation(libs.hilt.android.testing)
     kaptAndroidTest(libs.hilt.compiler.v244)
+
     testImplementation(libs.turbine)
-    testImplementation( libs.kotlinx.coroutines.test)
+    testImplementation(libs.kotlinx.coroutines.test)
 
 
     implementation(libs.retrofit)
@@ -85,4 +89,8 @@ dependencies {
     kapt(libs.compiler)
 
 
+}
+
+kapt {
+    correctErrorTypes  = true
 }
